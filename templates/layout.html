@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucket List Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header>
+    <div class="container">
+        <h1>Bucket List Management Application</h1>
+        <nav>
+            {% if session['user_id'] %}
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('logout') }}">Log Out</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
+
+<article class="container">
+    {% block content %}
+    {% endblock %}
+</article>
+
+<footer>
+    <div class="container">
+        &copy; 2024 Bucket List Management Application. All rights reserved.
+    </div>
+</footer>
+</body>
+</html>
